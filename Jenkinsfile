@@ -8,5 +8,6 @@ pipeline {
             steps {
                 docker build --name myapp .
         }
+      }
    }      
 }
