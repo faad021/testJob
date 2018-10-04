@@ -1,13 +1,13 @@
 pipeline {
-    agent { Dockerfile true }
+    agent {
+        dockerfile true
+    }
     stages {
-        stage('Clone repository') {
-           checkout scm
-        }
         stage('Build') {
             steps {
-                docker build --name myapp .
+                checkout scm
+                docker build -t myapp .
+            }
         }
-      }
-   }      
+    }
 }
