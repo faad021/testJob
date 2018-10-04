@@ -9,7 +9,7 @@ node {
         app = bat "docker build -t myapp ."
     }
     stage('Test image') {
-        app= bat "RUN echo Image tested successfully"
+        app=  CMD [ "bat", "-c", "success" ]
        
         }
 }
