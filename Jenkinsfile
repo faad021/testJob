@@ -7,7 +7,7 @@ pipeline {
            checkout scm
         }
         stage('Build') {
-            
+            docker build 'MvcMovie.csproj'
         }
     }
 }
