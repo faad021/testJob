@@ -1,4 +1,4 @@
 node {
   checkout scm
-  sh "docker build -t myapp ."
+  bat "docker build -t myapp ."
 }
