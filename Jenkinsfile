@@ -1,13 +1,4 @@
-pipeline {
-    agent {
-        dockerfile true
-    }
-    stages {
-        stage('Build') {
-            steps {
-                checkout scm
-                docker build -t myapp .
-            }
-        }
-    }
+node {
+  checkout scm
+  sh "docker build -t myapp ."
 }
