@@ -12,5 +12,4 @@ node {
         app= bat "RUN echo Image tested successfully"
        
         }
-    }
 }
