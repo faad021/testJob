@@ -9,7 +9,9 @@ node {
         app = bat "docker build -t myapp ."
     }
     stage('Test image') {
-        app=  CMD [ "bat", "-c", "success" ]
+         app.inside {
+            bat 'echo "Tests passed"'
+        }
        
         }
 }
