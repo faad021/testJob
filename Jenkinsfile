@@ -15,6 +15,6 @@ node {
          bat 'echo "Deployed successfully"'
         }
      stage('Run image') {
-         app = bat "docker run -d -p 5000:80 --name myapp myasp."
+         app = bat "docker run -d -p 5000:80 --name myapp myapp."
         }
 }
