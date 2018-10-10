@@ -11,6 +11,6 @@ node {
          bat 'echo "Tests successful"'
         }
      stage('Run image') {
-         app = bat "docker run -p 9090:80 myapp"
+         app = bat "docker run -d -p 5000:80 --name myapp myapp"
         }
 }
