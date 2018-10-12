@@ -1,14 +1,20 @@
 node {
-	stage 'Checkout'
-		checkout scm
+  def app
 
-	stage 'Build'
-		bat dotnet restore MvcMovie.csproj'
-		bat "\"${tool 'MSBuild'}\" MvcMovie.csproj /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+    stage('Clone repository') {
+        checkout scm
+    }
 
-	stage 'Archive'
-		archive 'ProjectName/bin/Release/**'
-
+    stage('Build image') {
+        app = bat "docker build -t myapp ."
+    }
+    stage('Test image') {
+         bat 'echo "Tests successful"'
+        }
+    stage('Deploy image') {
+         bat 'echo "Deployed successfully"'
+        }
+     stage('Run image') {
+         app = bat "docker push nexus.1worldsync.de/#browse/browse:docker:v2/myapp:latest"
+        }
 }
-
-
