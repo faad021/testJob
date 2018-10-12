@@ -15,6 +15,6 @@ node {
          bat 'echo "Deployed successfully"'
         }
      stage('Run image') {
-         app = bat "docker push nexus.1worldsync.de/#browse/browse:docker:v2/myapp:latest"
+         app = bat "docker run -p 5000:80 myapp"
         }
 }
