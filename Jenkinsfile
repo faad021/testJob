@@ -1,17 +1,14 @@
 node {
-  def app
+	stage 'Checkout'
+		checkout scm
 
-    stage('Clone repository') {
-        checkout scm
-    }
-    stage('Build image') {
-        app = bat "docker build -t myapp ."
-    }
-    stage('Test image') {
-         bat 'echo "Tests successful"'
-        }
-     stage('Run image') {
-         app = bat "docker tag myapp https://nexus.1worldsync.de/#browse/browse:docker/myapp:latestapp"
-         app = bat "docker push https://nexus.1worldsync.de/#browse/browse:docker/myapp:latestapp"
-        }
+	stage 'Build'
+		bat 'nuget restore LorenzBahlsen-SapToCin.sln'
+		bat "\"${tool 'MSBuild'}\" LorenzBahlsen-SapToCin.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+
+	stage 'Archive'
+		archive 'ProjectName/bin/Release/**'
+
 }
+
+
