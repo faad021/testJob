@@ -14,7 +14,9 @@ node {
   
      stage('Run image') {
        withDockerRegistry([ credentialsId: "", url: "https://hub.docker.com/r/fsayaou/jenkinstest/" ]) {
+         
          app = bat "docker login"
+         app = bat "docker tag myapp fsayaou/jenkinstest"
          app = bat "docker push myapp"
         }
   }
