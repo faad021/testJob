@@ -6,7 +6,7 @@ node {
     }
 
     stage('Build image') {
-        app = bat "docker build -t myapp ."
+        app = bat "docker build -t myapp.zip ."
     }
     stage('Test image') {
          bat 'echo "Tests successful"'
