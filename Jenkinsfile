@@ -11,7 +11,12 @@ node {
     stage('Test image') {
          bat 'echo "Tests successful"'
         }
-  
+     stage('Zip image') {
+         bat 'mkdir archive'
+                bat 'echo test > archive/myapp.txt'
+                zip zipFile: 'myapp.zip', archive: false, dir: 'archive'
+                archiveArtifacts artifacts: 'myapp.zip', fingerprint: true
+        }
      stage('Push image') {
        withDockerRegistry([ credentialsId: "", url: "https://hub.docker.com/r/fsayaou/jenkinstest/" ]) {
          
