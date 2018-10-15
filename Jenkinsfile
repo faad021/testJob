@@ -19,8 +19,8 @@ node {
        withDockerRegistry([ credentialsId: "", url: "https://hub.docker.com/r/fsayaou/jenkinstest/" ]) {
          
          app = bat "docker login"
-         app = bat "docker tag myapp fsayaou/jenkinstest:myapp"
-         app = bat "docker push fsayaou/jenkinstest:myapp"
+         app = bat "docker tag myapp.zip fsayaou/jenkinstest:myapp.zip"
+         app = bat "docker push fsayaou/jenkinstest:myapp.zip"
         }
   }
 }
