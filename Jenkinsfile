@@ -11,9 +11,9 @@ node {
     stage('Test image') {
          bat 'echo "Tests successful"'
         }
-    stage('Zip image') {
-         app =zip archive: true, dir: 'archive', glob: '', zipFile: 'myapp'
-        }
+    //stage('Zip image') {
+      //   app =zip archive: true, dir: 'archive', glob: '', zipFile: 'myapp'
+      //  }
      stage('Push image') {
        withDockerRegistry([ credentialsId: "", url: "https://hub.docker.com/r/fsayaou/jenkinstest/" ]) {
          
