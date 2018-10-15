@@ -14,7 +14,7 @@ node {
     stage('Zip') {
             dir('myapp') {
             sh '''
-            zip -r  myapp.zip myapp
+            zip -r  myapp.zip 
             '''
        }
         }
