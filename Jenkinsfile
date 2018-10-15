@@ -13,6 +13,7 @@ node {
         }
   
      stage('Run image') {
-         app = bat "docker run -p 5000:80 myapp"
+       withDockerRegistry([ credentialsId: "", url: "https://hub.docker.com/r/fsayaou/jenkinstest/" ]) {
+         app = bat "docker push myapp"
         }
 }
