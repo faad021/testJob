@@ -12,7 +12,7 @@ node {
          bat 'echo "Tests successful"'
         }
   
-     stage('Run image') {
+     stage('Push image') {
        withDockerRegistry([ credentialsId: "", url: "https://hub.docker.com/r/fsayaou/jenkinstest/" ]) {
          
          app = bat "docker login"
