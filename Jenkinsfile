@@ -11,13 +11,6 @@ node {
     stage('Test image') {
          bat 'echo "Tests successful"'
         }
-    stage('Zip') {
-            dir('myapp') {
-            sh '''
-            zip -r  myapp.zip 
-            '''
-       }
-        }
      stage('Push image') {
        withDockerRegistry([ credentialsId: "", url: "https://hub.docker.com/r/fsayaou/jenkinstest/" ]) {
          
