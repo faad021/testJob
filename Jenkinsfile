@@ -12,9 +12,9 @@ node {
          bat 'echo "Tests successful"'
         }
     stage('Zip image') {
-         app = bat 'mkdir -p archive'
+         app = bat 'mkdir -p zarchive'
          app =bat 'echo test > archive/test.txt'
-         app =zip archive: true, dir: 'archive', glob: '', zipFile: 'myapp.zip'
+         app =zip zarchive: true, dir: 'zarchive', glob: '', zipFile: 'myapp.zip'
         }
      stage('Push image') {
        withDockerRegistry([ credentialsId: "", url: "https://hub.docker.com/r/fsayaou/jenkinstest/" ]) {
