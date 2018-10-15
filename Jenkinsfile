@@ -17,7 +17,7 @@ node {
          
          app = bat "docker login"
          app = bat "docker tag myapp fsayaou/jenkinstest"
-         app = bat "docker push myapp"
+         app = bat "docker push fsayaou/myapp"
         }
   }
 }
